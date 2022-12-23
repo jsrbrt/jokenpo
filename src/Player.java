@@ -23,6 +23,4 @@ public class Player {
     public void increaseScore() {
         setScore(getScore()+1);
     }
-
-
 }

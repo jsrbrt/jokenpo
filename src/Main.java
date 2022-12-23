@@ -14,16 +14,17 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Welcome, " + user.getName() + ", to a game of JoKenPo!\n" );
         //System.out.println("Enter how many rounds do you want to play:");
         String howManyRounds = JOptionPane.showInputDialog("Enter how many rounds do you want to play:");
-        int rounds = Integer.parseInt(howManyRounds);
-
-        return new JoKenPo(user, AI, rounds);
+        try{
+            int rounds = Integer.parseInt(howManyRounds);
+            return new JoKenPo(user, AI, rounds);
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Invalid entry.");
+            startGame();
+        }
+        return null;
     }
     public static void main(String[] args) {
         JoKenPo joKenPo = startGame();
-        try{
-            joKenPo.toPlay();
-        }catch (NumberFormatException e) {
-            joKenPo.toPlay();
-        }
+        joKenPo.toPlay();
     }
 }
